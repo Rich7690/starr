@@ -212,20 +212,37 @@ type MovieFile struct {
 
 // MediaInfo is part of a MovieFile.
 type MediaInfo struct {
-	AudioAdditionalFeatures string  `json:"audioAdditionalFeatures"`
-	AudioBitrate            int     `json:"audioBitrate"`
-	AudioChannels           float64 `json:"audioChannels"`
-	AudioCodec              string  `json:"audioCodec"`
-	AudioLanguages          string  `json:"audioLanguages"`
-	AudioStreamCount        int     `json:"audioStreamCount"`
-	VideoBitDepth           int     `json:"videoBitDepth"`
-	VideoBitrate            int     `json:"videoBitrate"`
-	VideoCodec              string  `json:"videoCodec"`
-	VideoFps                float64 `json:"videoFps"`
-	Resolution              string  `json:"resolution"`
-	RunTime                 string  `json:"runTime"`
-	ScanType                string  `json:"scanType"`
-	Subtitles               string  `json:"subtitles"`
+	AudioAdditionalFeatures      string  `json:"audioAdditionalFeatures"`
+	AudioBitrate                 int     `json:"audioBitrate"`
+	AudioChannelPositions        string  `json:"audioChannelPositions"`
+	AudioChannelPositionsText    string  `json:"audioChannelPositionsText"`
+	AudioChannels                float64 `json:"audioChannels"`
+	AudioCodec                   string  `json:"audioCodec"`
+	AudioCodecID                 string  `json:"audioCodecID"`
+	AudioCodecLibrary            string  `json:"audioCodecLibrary"`
+	AudioFormat                  string  `json:"audioFormat"`
+	AudioLanguages               string  `json:"audioLanguages"`
+	AudioProfile                 string  `json:"audioProfile"`
+	AudioStreamCount             int     `json:"audioStreamCount"`
+	ContainerFormat              string  `json:"containerFormat"`
+	Height                       int     `json:"height"`
+	Resolution                   string  `json:"resolution"`
+	RunTime                      string  `json:"runTime"`
+	ScanType                     string  `json:"scanType"`
+	SchemaRevision               int     `json:"schemaRevision"`
+	Subtitles                    string  `json:"subtitles"`
+	VideoBitDepth                int     `json:"videoBitDepth"`
+	VideoBitrate                 int     `json:"videoBitrate"`
+	VideoCodec                   string  `json:"videoCodec"`
+	VideoCodecID                 string  `json:"videoCodecID"`
+	VideoCodecLibrary            string  `json:"videoCodecLibrary"`
+	VideoColourPrimaries         string  `json:"videoColourPrimaries"`
+	VideoFormat                  string  `json:"videoFormat"`
+	VideoFps                     float64 `json:"videoFps"`
+	VideoMultiViewCount          int     `json:"videoMultiViewCount"`
+	VideoProfile                 string  `json:"videoProfile"`
+	VideoTransferCharacteristics string  `json:"videoTransferCharacteristics"`
+	Width                        int     `json:"width"`
 }
 
 // QualityProfile is applied to Movies.
@@ -288,8 +305,10 @@ type CustomFormatField struct {
 // CommandRequest goes into the /api/v3/command endpoint.
 // This was created from the search command and may not support other commands yet.
 type CommandRequest struct {
-	Name     string  `json:"name"`
-	MovieIDs []int64 `json:"movieIds,omitempty"`
+	Name        string  `json:"name"`
+	MovieIDs    []int64 `json:"movieIds,omitempty"`
+	FilterKey   string  `json:"filterKey,omitempty"`
+	FilterValue string  `json:"filterValue,omitempty"`
 }
 
 // CommandResponse comes from the /api/v3/command endpoint.
